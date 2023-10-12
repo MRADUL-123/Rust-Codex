@@ -1,0 +1,20 @@
+fn main() {
+    let mut numbers = Vec::new();
+
+    for i in 1..=99 {
+        numbers.push(i);
+    }
+
+    let mut most_common_number = 0;
+    let mut max_count = 0;
+
+    for &number in &numbers {
+        let count = numbers.iter().filter(|&&x| x == number).count();
+        if count > max_count {
+            most_common_number = number;
+            max_count = count;
+        }
+    }
+
+    println!("The most common number is {} with a count of {}", most_common_number, max_count);
+}
